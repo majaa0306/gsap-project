@@ -1,0 +1,65 @@
+//------------------
+// Partials
+//------------------
+
+$bg-color: #e3d5ff;
+$bg-color-sc: #d1bbff;
+$pink: #9e57c4;
+$dark-pink: #B428FF;
+$extraDark-pink: #380f4e;
+
+$text-black: #0c0c0c;
+$text-white: #f0f0f0;
+
+//------------------
+// Mixins
+//------------------
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin responsive-font-size($default-size, $size-1200, $size-900) {
+  font-size: $default-size;
+
+  @media (max-width: 1200px) {
+    font-size: $size-1200;
+  }
+
+  @media (max-width: 900px) {
+    font-size: $size-900;
+  }
+}
+
+@mixin fonts($font-color, $font-family, $font-weight, $letter-spacing) {
+  color: $font-color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
+  font-style: normal;
+}
+
+@mixin flex($justify-content) {
+  display: flex;
+  justify-content: $justify-content;
+}
+
+@mixin grid($column, $row) {
+  display: grid;
+  grid-template-columns: $column;
+  grid-template-rows: $row;
+}
+
+@mixin box($bg-color, $border-radius, $height, $width) {
+  background-color: $bg-color;
+  border-radius: $border-radius;
+  height: $height;
+  width: $width;
+
+  @media (max-width: 1200px) {
+    border-radius: $border-radius * 0.75;
+    height: $height * 0.75;
+    width: $width * 0.75;  
+  }
+
+}
+

@@ -1,0 +1,360 @@
+@import 'partials';
+
+//------------------
+// Generel styling
+//------------------
+body {
+  background-color: $bg-color;
+  box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 90vh
+}
+
+h1 {
+  @include responsive-font-size(70px, 50px, 40px);
+  @include fonts($text-black, "Lora", 600, 5px)
+}
+
+p, .navLink, li {
+  @include responsive-font-size(26px, 24px, 20px);
+  @include fonts($text-black, "Raleway", 400, 3px);
+  text-decoration: none;
+  line-height: 1.5em;
+}
+
+h2 {
+  @include responsive-font-size(35px, 32px, 29px);
+  @include fonts($text-black, "Lora", 600, 5px);
+}
+
+button {
+  @include responsive-font-size(26px, 24px, 20px);
+  @include fonts($text-black, "Lora", 600, 5px);
+  border: none;
+  border-radius: 10px;
+  background-color: $text-white;
+  color: $pink;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for alle egenskaber */
+}
+button:hover {
+  background-color: $pink;
+  color: $text-white;
+  border: 2px solid $text-white;
+}
+
+//------------------
+// Navbar
+//------------------
+.navbar {
+  background-color: $bg-color-sc;
+  @include flex(space-between);
+  padding: 1em 3em;
+  p, .navLink {
+    @include fonts($text-black, "Neucha", 400, 5px);
+  }
+  .navLink {
+    position: relative;
+    top: 1em;
+  }
+  ul {
+    display: flex;
+    gap: 7em;
+    margin: 0;
+  }
+  li {
+    list-style: none;
+    cursor: pointer;
+  }
+  .burger {
+    display: none;
+  }
+  .line {
+    @include box($text-black, 10px, 4px, 40px);
+  }
+}
+
+.logo {
+  cursor: pointer;
+  letter-spacing: 10px;
+  text-decoration: none;
+  span {
+    color: $pink;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navbar {
+    ul {
+      gap: 3em;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    p {
+      font-size: 30px;
+    }
+    .navLink {
+      font-size: 30px;
+    }
+    .navLinks {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 5em;
+      width: 40vw;
+      background-color: $bg-color-sc;
+      flex-direction: column;
+      gap: 4em;
+      z-index: 10;
+      height: 100vh;
+    }
+    .burger {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
+
+//------------------
+// Intro
+//------------------
+.intro {
+  position: relative;
+  z-index: -1;
+  margin: 10vw 22vw;
+  h1, p {
+    text-align: center;
+  }
+  span {
+    background-color: $dark-pink;
+    border-radius: 15px;
+    padding: 0 20px;
+    text-align: center;
+    color: $text-white;
+    letter-spacing: 20px;
+  }
+  .showScroll {
+    margin: 4em 0 1em 0;
+    color: $dark-pink;
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 1200px) {
+  .intro {
+    margin: 0 15vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .intro {
+    margin: 0 3vw;
+  }
+}
+
+.animated-span {
+  display: inline-block;
+}
+
+//------------------
+// Examples
+//------------------
+
+.container {
+  margin: 2em 0 2em 2em;
+  padding: 2em;
+  position: relative;
+  z-index: 1;
+}
+.bgColorSc {
+  @include grid(1fr, 1fr);
+  background-color: $bg-color-sc;
+  padding: 0 25vw 2vw 25vw;
+}
+
+.bgColor {
+  @include grid(1fr, 1fr);
+  background-color: $bg-color;
+  padding: 0 25vw 2vw 25vw;
+}
+
+.boxContainer {
+  @include flex(center);
+  padding: 5em 0;
+  gap: 1em;
+  position: relative;
+
+  .boxSquare {
+    @include box($pink, 2px, 3em, 3em);
+    margin: 10em 0 0 0;
+  }
+  .boxSquareBig {
+    @include box($pink, 10px, 5em, 5em);
+  }
+  .boxSquareExtraBig {
+    @include box($pink, 10px, 10em, 10em);
+  }
+}
+
+pre {
+  background-color: #2e2e2e; 
+  overflow-y: scroll;
+  height: 15em;
+  color: #f8f8f2; 
+  padding: 0 20px; 
+  border-radius: 8px;
+  font-size: 14px; 
+  line-height: 1.5; 
+  overflow-x: auto; 
+  margin-top: 20px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+code {
+  font-family: 'Courier New', monospace; 
+  white-space: pre-wrap;
+  word-wrap: break-word; 
+}
+
+@media (max-width: 1500px) {
+  .bgColorSc, .bgColor {
+    padding: 0 2vw 2vw 2vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .bgColorSc, .bgColor {
+    padding: 0;
+  }
+}
+
+//------------------
+// Discovery
+//------------------
+.textBox {
+  margin: 2em 25vw 5em 25vw;
+  li {
+    padding: 10px 0;
+  }
+}
+@media (max-width: 1200px) {
+  .textBox {
+    margin: 2em 15vw 5em 15vw;
+  }
+}
+@media (max-width: 900px) {
+  .textBox {
+    margin: 1em 5vw 5em 5vw;
+  }
+}
+//------------------
+// SwappedBox
+//------------------
+.contactForm {
+  display: flex;
+  justify-content: center;
+}
+.contactForm .container {
+  display: flex; 
+  padding: 0;
+  background-color: $bg-color-sc;
+  width: 75vw;
+  height: 60vh;
+  border-radius: 10px;
+  margin: 8em 0;
+}
+
+.contactForm .first {
+  flex: 2;
+  border-radius: 10px 0 0 10px;
+  z-index: 1;
+  ul {
+    margin: 2em 5em;
+    li {
+      margin-bottom: 12px;
+      @include responsive-font-size(24px, 22px, 18px)
+    }
+  }
+}
+
+.contactForm .second {
+  flex: 1;
+  background-color: $pink;
+  border-radius: 0 10px 10px 0;
+  z-index: 2;
+  text-align: center;
+  position: relative;
+  button {
+    position: absolute;
+    bottom: 5em;
+    left: 50%; /* Centrer knappen horisontalt */
+    transform: translateX(-50%); 
+  }
+  h2 {
+    margin-top: 3em;
+    color: $text-white;
+  }
+}
+
+@media (max-width: 1200px) {
+  .contactForm .container {
+    margin: 5em 0 8em 0;
+    width: 85vw;
+  }
+  .contactForm .first {
+    ul {
+      margin: 2em 3em;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .contactForm .container {
+    margin: 5em 0 8em 0;
+    width: 95vw;
+  }
+  .contactForm .first {
+    ul {
+      margin: 2em 1em;
+    }
+  }
+}
+
+//------------------
+// Footer
+//------------------
+
+footer {
+  padding: 1em 4em;
+  background-color: $text-white;
+  text-align: center;
+  overflow: hidden;
+  nav {
+    @include grid(1fr 1fr 1fr, 1fr);
+    gap: 1em;
+    p:hover {
+      cursor: pointer;
+      color: #B428FF;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  footer {
+    nav {
+      @include grid(1fr, 1fr 1fr 1fr)
+    }
+  }
+}
+
+// 251
