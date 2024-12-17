@@ -279,10 +279,15 @@ code {
   border-radius: 10px 0 0 10px;
   z-index: 1;
   ul {
+    margin-top: 5vw;
     margin: 2em 5em;
     li {
-      margin-bottom: 12px;
-      @include responsive-font-size(24px, 22px, 18px)
+      margin-bottom: 2vw;
+      @include responsive-font-size(24px, 22px, 18px);
+      color: $text-black;
+      font-weight: 300;
+      text-decoration: none;
+      list-style: none;
     }
   }
 }
