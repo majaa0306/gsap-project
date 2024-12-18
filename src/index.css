@@ -28,7 +28,7 @@ h1 {
   }
 }
 
-p, .navLink, li {
+p, .navLink, a, li {
   font-size: 26px;
   color: #0c0c0c;
   font-family: "Raleway";
@@ -39,12 +39,12 @@ p, .navLink, li {
   line-height: 1.5em;
 }
 @media (max-width: 1200px) {
-  p, .navLink, li {
+  p, .navLink, a, li {
     font-size: 24px;
   }
 }
 @media (max-width: 900px) {
-  p, .navLink, li {
+  p, .navLink, a, li {
     font-size: 20px;
   }
 }
@@ -104,6 +104,8 @@ button:hover {
   background-color: #d1bbff;
   display: flex;
   justify-content: space-between;
+  gap: 0;
+  flex-direction: row;
   padding: 1em 3em;
 }
 .navbar p, .navbar .navLink {
@@ -119,7 +121,9 @@ button:hover {
 }
 .navbar ul {
   display: flex;
+  justify-content: flex-start;
   gap: 7em;
+  flex-direction: row;
   margin: 0;
 }
 .navbar li {
@@ -151,6 +155,13 @@ button:hover {
 .logo span {
   color: #9e57c4;
 }
+.logo p {
+  color: #0c0c0c;
+  font-family: "Neucha";
+  font-weight: 400;
+  letter-spacing: 5px;
+  font-style: normal;
+}
 
 @media (max-width: 1200px) {
   .navbar ul {
@@ -165,22 +176,33 @@ button:hover {
     font-size: 30px;
   }
   .navbar .navLinks {
+    background-color: #d1bbff;
+    border-radius: 0;
+    height: 100vh;
+    width: 40vw;
     display: none;
     position: absolute;
     right: 0;
     top: 5em;
-    width: 40vw;
-    background-color: #d1bbff;
     flex-direction: column;
     gap: 4em;
     z-index: 10;
-    height: 100vh;
   }
+}
+@media (max-width: 900px) and (max-width: 1200px) {
+  .navbar .navLinks {
+    border-radius: 0;
+    height: 75vh;
+    width: 30vw;
+  }
+}
+@media (max-width: 900px) {
   .navbar .burger {
-    margin-top: 20px;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
     gap: 10px;
+    flex-direction: column;
+    margin-top: 20px;
   }
 }
 .intro {
@@ -192,16 +214,18 @@ button:hover {
   text-align: center;
 }
 .intro span {
-  background-color: #B428FF;
+  background-color: #9e57c4;
   border-radius: 15px;
   padding: 0 20px;
+  margin: 10px 0;
   text-align: center;
   color: #f0f0f0;
   letter-spacing: 20px;
+  line-height: 1.5;
 }
 .intro .showScroll {
   margin: 4em 0 1em 0;
-  color: #B428FF;
+  color: #9e57c4;
   font-size: 3em;
 }
 
@@ -245,8 +269,9 @@ button:hover {
 .boxContainer {
   display: flex;
   justify-content: center;
-  padding: 5em 0;
   gap: 1em;
+  flex-direction: row;
+  padding: 5em 0;
   position: relative;
 }
 .boxContainer .boxSquare {
@@ -292,16 +317,24 @@ button:hover {
 
 pre {
   background-color: #2e2e2e;
-  overflow-y: scroll;
+  border-radius: 8px;
   height: 15em;
+  width: 100%;
+  overflow-y: scroll;
   color: #f8f8f2;
   padding: 0 20px;
-  border-radius: 8px;
   font-size: 14px;
   line-height: 1.5;
   overflow-x: auto;
   margin-top: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 1200px) {
+  pre {
+    border-radius: 6px;
+    height: 11.25em;
+    width: 75%;
+  }
 }
 
 code {
@@ -340,16 +373,25 @@ code {
 .contactForm {
   display: flex;
   justify-content: center;
+  gap: 0;
+  flex-direction: row;
 }
 
 .contactForm .container {
+  background-color: #d1bbff;
+  border-radius: 10px;
+  height: 60vh;
+  width: 75vw;
   display: flex;
   padding: 0;
-  background-color: #d1bbff;
-  width: 75vw;
-  height: 60vh;
-  border-radius: 10px;
   margin: 8em 0;
+}
+@media (max-width: 1200px) {
+  .contactForm .container {
+    border-radius: 7.5px;
+    height: 45vh;
+    width: 56.25vw;
+  }
 }
 
 .contactForm .first {
@@ -391,7 +433,7 @@ code {
 .contactForm .second button {
   position: absolute;
   bottom: 5em;
-  left: 50%; /* Centrer knappen horisontalt */
+  left: 50%;
   transform: translateX(-50%);
 }
 .contactForm .second h2 {

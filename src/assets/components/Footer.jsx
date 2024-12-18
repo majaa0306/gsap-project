@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,9 +57,9 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footerContent">
-        <div className="logo">
+        <Link className="logo" to='/'>
           <p>Learn<span>WEB</span></p>
-        </div>
+        </Link>
         <nav>
           <div>
             <h2>Lær mere om</h2>
@@ -69,9 +70,8 @@ function Footer() {
           </div>
           <div>
             <h2>Vores sider</h2>
-            <p>Forside</p>
-            <p>Kontakt os</p>
-            <p>Gå på opdagelse</p>
+            <Link to="/"><p>Forside</p></Link>
+            <Link to="/discovery"><p>Gå på opdagelse</p></Link> 
           </div>
           <div>
             <h2>Kontakt os på</h2>

@@ -38,9 +38,11 @@ $text-white: #f0f0f0;
   font-style: normal;
 }
 
-@mixin flex($justify-content) {
+@mixin flex($justify-content, $gap, $direction) {
   display: flex;
   justify-content: $justify-content;
+  gap: $gap;
+  flex-direction: $direction;
 }
 
 @mixin grid($column, $row) {
